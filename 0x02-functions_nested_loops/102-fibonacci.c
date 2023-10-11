@@ -7,25 +7,24 @@
 
 int main(void)
 {
-	int first = 1, second = 2, next, i;
+	int i = 0;
 
-	printf("%d, %d, ", first, second);
+	long j = 1, k = 2;
 
-	for (i = 3; i <= 50; ++i)
+	while (i < 50)
 	{
-		next = first + second;
-		printf("%d", next);
-
-		if (i != 50)
+		if (i == 0)
+			printf("%ld", j);
+		else if (i == 1)
+			printf(", %ld", k);
+		else
 		{
-			printf(", ");
+			k += j;
+			j = k - j;
+			printf(", %ld", k);
 		}
-
-		first = second;
-		second = next;
+		++i;
 	}
-
 	printf("\n");
-
 	return (0);
 }
