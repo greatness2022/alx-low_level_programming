@@ -10,24 +10,16 @@
 
 int main(void)
 {
-	char password[100];
-	int i, sum, diff;
+	int sum;
+	char c;
 
-	srand(time(0));
-
-	for (i = 0, sum = 0, diff = 2772; diff > 122; i++)
+	srand (time(NULL));
+	while (sum <= 2645)
 	{
-		password[i] = rand() % 10 + 48;
-		sum += password[i];
-		diff -= sum;
+		c = rand() % 128;
+		sum += c;
+		putchar(c);
 	}
-
-	password[i] = diff;
-
-	for (i = 0; password[i] != '\0'; i++)
-	{
-		printf("%c", password[i]);
-	}
-
+	putchar(2772 - sum);
 	return (0);
 }
